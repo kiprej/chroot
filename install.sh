@@ -66,7 +66,7 @@ chroot $chrootBaseDir locale-gen
 chroot $chrootBaseDir apt-get update > /dev/null 2>&1
 echo -e $INFO A Debian $iSystem chroot environment  installed.
 echo -e $INFO Now deploying services start script...
-$WGET $chrootBaseDir/chroot_$chrootDir.sh $projectURL/wedro_chroot.sh
+$WGET /etc/init.d/chroot_$chrootDir.sh $projectURL/wedro_chroot.sh
 eval sed -i 's,__CHROOT_DIR_PLACEHOLDER__,$chrootBaseDir,g' $chrootBaseDir/chroot_$chrootDir.sh
 chmod +x $chrootBaseDir/chroot_$chrootDir.sh
 touch $chrootBaseDir/chroot-services.list
